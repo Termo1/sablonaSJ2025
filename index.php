@@ -19,7 +19,7 @@
         <ul class="main-menu" id="main-menu">
             <li><a href="index.html">Domov</a></li>
             <li><a href="portfolio.html">Portfólio</a></li>
-            <li><a href="qna.html">Q&A</a></li>
+            <li><a href="qna.php">Q&A</a></li>
             <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
         <a class="hamburger" id="hamburger">
@@ -55,13 +55,22 @@
         <a id="next" class="next">❯</a>
         
       </section>
-      <section class="container">
-        <div class="row">
-          <div class="col-100 text-center">
-              <p><strong><em>Elit culpa id mollit irure sit. Ex ut et ea esse culpa officia ea incididunt elit velit veniam qui. Mollit deserunt culpa incididunt laborum commodo in culpa.</em></strong></p>
-          </div>
-        </div>
-      </section>
+        <section class="container">
+            <div class="row">
+                <div class="col-100 text-center">
+                    <?php
+                    $hour = date('H');
+                    if ($hour < 12) {
+                        echo "<h3>Dobré ráno</h3>";
+                    } elseif ($hour < 18) {
+                        echo "<h3>Dobrý deň</h3>";
+                    } else {
+                        echo "<h3>Dobrý večer</h3>";
+                    }
+                    ?>
+                </div>
+            </div>
+        </section>
       <section class="container">
         <div class="row">
           <div class="col-50">
