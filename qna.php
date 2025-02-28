@@ -47,7 +47,9 @@
                 <div class="question"><?php echo $otazky[$i]; ?></div>
                 <div class="answer"><?php echo $odpovede[$i]; ?></div>
             </div>
-        <?php } ?>
+        <?php
+        }
+        ?>
     </section>
     </section>
     </div>
