@@ -2,7 +2,7 @@
 
 Tento projekt slúži ako podklad pre cvičenia z predmetu Skriptovacie jazyky, kde sa študenti postupne učia nové funkcionality vrámci jazyka PHP.
 
-###📂 Štruktúra repozitára
+### 📂 Štruktúra repozitára
 Každá **branch** predstavuje jedno cvičenie. Obsahuje všetky zmeny a nové funkcionality, ktoré sa študenti počas hodiny naučili.
 
 main – základná verzia projektu
@@ -73,3 +73,5 @@ Ak chcete pracovať so svojou vlastnou kópiou repozitára, môžete si ho forkn
 git clone https://github.com/TVOJE_GITHUB_UZIVATELSKE_MENO/sablonaSJ2025.git
 ```
 3. Následne môžete pracovať na tejto kópii
+
+![duck]([https://upload.wikimedia.org/wikipedia/commons/2/29/Xampp_logo.png](https://cdn.pixabay.com/photo/2023/11/29/09/46/duck-8419140_1280.png))
