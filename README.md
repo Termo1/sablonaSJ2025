@@ -70,8 +70,8 @@ Ak chcete pracovať so svojou vlastnou kópiou repozitára, môžete si ho forkn
 1. Kliknite na tlačidlo Fork v hornej časti GitHub stránky - > Vytvorí sa kópia repozitára vo vašom účte
 2. Naklonujte ju: 
 ```
-git clone https://github.com/TVOJE_GITHUB_UZIVATELSKE_MENO/sablonaSJ2025.git
+git clone https://github.com/mrsZemiak/sablonaSJ2025.git
 ```
 3. Následne môžete pracovať na tejto kópii
 
-![duck]([https://upload.wikimedia.org/wikipedia/commons/2/29/Xampp_logo.png](https://cdn.pixabay.com/photo/2023/11/29/09/46/duck-8419140_1280.png))
+![duck](https://img.artpal.com/398651/693-24-4-4-9-18-2m.jpg)
