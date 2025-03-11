@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="fcd0074f-116e-4143-84eb-032226575861" name="Changes" comment="" />
+=======
+    <list default="true" id="fcd0074f-116e-4143-84eb-032226575861" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/datas.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/datas.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
+    </list>
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,8 +36,12 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+<<<<<<< Updated upstream
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
+=======
+    "git-widget-placeholder": "feature/cviko-piatok-07-03-2025",
+>>>>>>> Stashed changes
     "last_opened_file_path": "/Applications/XAMPP/xamppfiles/htdocs/sablonaSJ2025",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -56,6 +68,11 @@
       <option name="presentableId" value="Default" />
       <updated>1740495613452</updated>
       <workItem from="1740495614501" duration="784000" />
+<<<<<<< Updated upstream
+=======
+      <workItem from="1741106595971" duration="453000" />
+      <workItem from="1741704436546" duration="87000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
