@@ -23,6 +23,7 @@ function generateSlides($dir)
         echo '<div class="slide fade">';
         echo '<img src="' . $file . '">';
         echo '<div class="slide-text">';
+
         echo($text[basename($file)]); //basename zistí názov
         echo '</div>';
         echo '</div>';
@@ -50,6 +51,7 @@ function insertQnA()
     }
     echo '</section>';
 }
+
 function validateMenuType(string $type): bool
 {
     $menuTypes = [
@@ -138,3 +140,50 @@ function getCSS()
     }
 }
 
+
+//text sa nacitava dynamicky zo suboru datas.json
+function finishPortfolio2()
+{
+    $portfolioData = preparePortfolio();
+    $data = json_decode(file_get_contents("data/datas.json"), true);
+    $portfolioTexts = $data["portfolio-text"];
+    foreach ($portfolioData as $row => $col) {
+        echo '<div class="row">';
+        foreach ($col as $index) {
+            $text = $portfolioTexts["portfolio{$index}.jpg"]; // Získanie textu z JSON súboru
+            echo '<div class="col-25 portfolio text-white text-center" id="portfolio-' . $index . '">
+                            ' . $text . '
+                         </div>';
+        }
+        echo '</div>';
+    }
+}
+
+
+
+
+// po kliknuti na okienko sa dostaneme na URL, ktora je ulozena v jsone
+function finishPortfolio3()
+{
+    $portfolioData = preparePortfolio();
+    $data = json_decode(file_get_contents("data/datas.json"), true);
+
+    echo '<div id="portfolio-row">';
+    foreach ($portfolioData as $row => $col) {
+        echo '<div class="row">';
+        foreach ($col as $index) {
+            $text = $data["portfolio-text-url"]["portfolio{$index}.jpg"]["text"];
+            $link = $data["portfolio-text-url"]["portfolio{$index}.jpg"]["link"];
+//<<<HTML je tzv. "here-doc" syntax, ktorá umožňuje vložiť viacriadkový text do premennej.
+            echo <<<HTML
+                    <a id="portfolio-{$index}" class="col-25 portfolio" href="{$link}">
+                    <div class="text-center">
+                    $text
+                    </div>
+                    </a>
+            HTML;
+        }
+        echo '</div>';
+    }
+    echo '</div>';
+}
