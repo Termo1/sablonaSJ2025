@@ -1,7 +1,5 @@
 <?php
-
-function pridajPozdrav()
-{
+function pridajPozdrav() {
     $hour = date('H');
     if ($hour < 12) {
         echo "<h3>Dobré ráno</h3>";
@@ -11,9 +9,7 @@ function pridajPozdrav()
         echo "<h3>Dobrý večer</h3>";
     }
 }
-
-function generateSlides($dir)
-{
+function generateSlides($dir) {
     $files = glob($dir . "/*.jpg");
     $json = file_get_contents("data/datas.json");
     $data = json_decode($json, true);
@@ -24,7 +20,7 @@ function generateSlides($dir)
         echo '<img src="' . $file . '">';
         echo '<div class="slide-text">';
 
-        echo($text[basename($file)]); //basename zistí názov
+        echo ($text[basename($file)]); //basename zistí názov
         echo '</div>';
         echo '</div>';
     }
@@ -58,18 +54,16 @@ function validateMenuType(string $type): bool
         'header',
         'footer'
     ];
-    if (in_array($type, $menuTypes)) {
+    if(in_array($type, $menuTypes)) {
         return true;
     } else {
         return false;
     }
 }
-
-function getMenuData(string $type): array
-{
+function getMenuData(string $type): array{
     $menu = [];
-    if (validateMenuType($type)) {
-        if ($type === "header") {
+    if(validateMenuType($type)) {
+        if($type === "header") {
             $menu = [
                 'home' => [
                     'name' => 'Domov',
@@ -92,39 +86,22 @@ function getMenuData(string $type): array
     }
     return $menu;
 }
-
-function printMenu(array $menu)
-{
+function printMenu(array $menu){
     foreach ($menu as $menuName => $menuData) {
-        echo '<li><a href="' . $menuData['path'] . '">' . $menuData['name'] . '</a></li>';
+        echo '<li><a href="'.$menuData['path'].'">'.$menuData['name'].'</a></li>';
     }
 }
 
-function preparePortfolio(int $numberOfRows = 2, int $numberOfCols = 4): array
-{
+function preparePortfolio(int $numberOfRows = 2, int $numberOfCols = 4): array{
     $portfolio = [];
     $colIndex = 1;
     for ($i = 1; $i <= $numberOfRows; $i++) {
-        for ($j = 1; $j <= $numberOfCols; $j++) {
+        for($j = 1; $j <= $numberOfCols; $j++) {
             $portfolio[$i][$j] = $colIndex;
             $colIndex++;
         }
     }
     return $portfolio;
-}
-
-function finishPortfolio()
-{
-    $portfolio = preparePortfolio();
-    foreach ($portfolio as $row => $col) {
-        echo '<div class="row">';
-        foreach ($col as $index) {
-            echo '<div class="col-25 portfolio text-white text-center" id="portfolio-' . $index . '">
-                            Web stránka ' . $index . '
-                         </div>';
-        }
-        echo '</div>';
-    }
 }
 
 
@@ -133,6 +110,7 @@ function getCSS()
     $jsonStr = file_get_contents("data/datas.json");
     $data = json_decode($jsonStr, true);
     $stranka = basename($_SERVER['REQUEST_URI']);
+    echo $stranka;
     $stranka = explode(".", $stranka)[0];
     $suboryCSS = $data['stranky'][$stranka];
     foreach ($suboryCSS as $subor) {
@@ -140,10 +118,21 @@ function getCSS()
     }
 }
 
+function finishPortfolio(){
+    $portfolio = preparePortfolio();
+    foreach ($portfolio as $row => $col) {
+        echo '<div class="row">';
+        foreach ($col as $index) {
+            echo '<div class="col-25 portfolio text-white text-center" id="portfolio-'.$index.'">
+                            Web stránka '.$index.'
+                         </div>';
+        }
+        echo '</div>';
+    }
+}
 
 //text sa nacitava dynamicky zo suboru datas.json
-function finishPortfolio2()
-{
+function finishPortfolio2() {
     $portfolioData = preparePortfolio();
     $data = json_decode(file_get_contents("data/datas.json"), true);
     $portfolioTexts = $data["portfolio-text"];
@@ -151,8 +140,8 @@ function finishPortfolio2()
         echo '<div class="row">';
         foreach ($col as $index) {
             $text = $portfolioTexts["portfolio{$index}.jpg"]; // Získanie textu z JSON súboru
-            echo '<div class="col-25 portfolio text-white text-center" id="portfolio-' . $index . '">
-                            ' . $text . '
+            echo '<div class="col-25 portfolio text-white text-center" id="portfolio-'.$index.'">
+                            '.$text.'
                          </div>';
         }
         echo '</div>';
@@ -163,18 +152,15 @@ function finishPortfolio2()
 
 
 // po kliknuti na okienko sa dostaneme na URL, ktora je ulozena v jsone
-function finishPortfolio3()
-{
+function finishPortfolio3() {
     $portfolioData = preparePortfolio();
     $data = json_decode(file_get_contents("data/datas.json"), true);
-
-    echo '<div id="portfolio-row">';
     foreach ($portfolioData as $row => $col) {
         echo '<div class="row">';
         foreach ($col as $index) {
-            $text = $data["portfolio-text-url"]["portfolio{$index}.jpg"]["text"];
+            $text = $data["portfolio-text-url"]["portfolio{$index}.jpg"]["text"]; // Získanie textu z JSON súboru
             $link = $data["portfolio-text-url"]["portfolio{$index}.jpg"]["link"];
-//<<<HTML je tzv. "here-doc" syntax, ktorá umožňuje vložiť viacriadkový text do premennej.
+            //<<<HTML je tzv. "here-doc" syntax, ktorá umožňuje vložiť viacriadkový text do premennej.
             echo <<<HTML
                     <a id="portfolio-{$index}" class="col-25 portfolio" href="{$link}">
                     <div class="text-center">
@@ -185,5 +171,5 @@ function finishPortfolio3()
         }
         echo '</div>';
     }
-    echo '</div>';
 }
+

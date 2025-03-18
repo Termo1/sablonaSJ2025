@@ -21,12 +21,9 @@
     "index": ["css/style.css", "css/slider.css"],
     "portfolio": ["css/style.css", "css/banner.css","css/portfolio.css"],
     "qna": ["css/style.css", "css/banner.css","css/accordion.css"],
-    "kontakt": ["css/style.css", "css/banner.css","css/form.css"]
+    "kontakt": ["css/style.css", "css/banner.css","css/form.css"],
+    "thankyou": ["css/style.css", "css/banner.css"]
   },
-
-
-
-
 
   "portfolio-text": {
     "portfolio1.jpg":"Webstránka 1",
@@ -38,8 +35,6 @@
     "portfolio7.jpg":"Webstránka 7",
     "portfolio8.jpg":"Webstránka 8"
   },
-
-
 
   "portfolio-text-url": {
     "portfolio1.jpg": {
@@ -75,6 +70,6 @@
       "link": "https://www.ukf.sk/"
     }
   }
-}
+  }
 
 
