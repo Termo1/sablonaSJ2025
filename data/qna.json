@@ -1,0 +1,16 @@
+{
+    "questions": [
+        {
+            "question": "Aké programovacie jazyky ovládaš?",
+            "answer": "PHP, JavaScript, Python, a SQL."
+        },
+        {
+            "question": "Aké projekty máš za sebou?",
+            "answer": "Vytvoril som portfólio webstránok, e-commerce riešenia a automatizačné skripty."
+        },
+        {
+            "question": "Na aký projekt si najviac hrdý?",
+            "answer": "Na komplexný CRM systém, ktorý optimalizoval workflow stredne veľkej firmy."
+        }
+    ]
+}
