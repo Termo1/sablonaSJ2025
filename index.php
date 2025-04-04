@@ -13,7 +13,7 @@
     
     <main>
       <section class="slides-container">
-        <div class="slide fade">
+        <div class="slide fade">  
           <img src="img/banner1.jpg">
           <div class="slide-text">
             Prvý nadpis
