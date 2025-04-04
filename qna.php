@@ -27,30 +27,35 @@
         </div>
       </div>
     </section>
-          <?php
-      // Načítanie JSON súboru
-      $jsonData = file_get_contents('data/qna.json');
+    
+    <?php
+    // Načítanie triedy a konfigurácie
+    require_once 'db/config.php';  // Súbor s konfiguráciou pripojenia k DB
+    require_once 'db/classy/QnA.php';     // Zahrnúť triedu QnA
+    
+    // Inicializácia objektu QnA
+    $qnaManager = new QnA($conn);
+    
+    // Načítanie otázok a odpovedí z databázy
+    $qnaData = $qnaManager->citajOtazkyOdpovede();
+    
+    // Dynamické generovanie sekcie s otázkami a odpoveďami
+    if (!empty($qnaData)) {
+        echo '<section class="container">';
+        foreach ($qnaData as $item) {
+            echo '<div class="accordion">';
+            echo '<div class="question">' . htmlspecialchars($item['otazka']) . '</div>';
+            echo '<div class="answer">' . htmlspecialchars($item['odpoved']) . '</div>';
+            echo '</div>';
+        }
+        echo '</section>';
+    } else {
+        echo '<section class="container"><div class="row"><div class="col-100 text-center">';
+        echo '<p>Zatiaľ nie sú k dispozícii žiadne otázky a odpovede.</p>';
+        echo '</div></div></section>';
+    }
+    ?>
 
-      // Prevod JSON na asociatívne pole
-      $qna = json_decode($jsonData, true);
-
-      // Dynamické generovanie sekcie
-      if ($qna && isset($qna['questions'])) {
-          echo '<section class="container">';
-          foreach ($qna['questions'] as $item) {
-              echo '<div class="accordion">';
-              echo '<div class="question">' . htmlspecialchars($item['question']) . '</div>';
-              echo '<div class="answer">' . htmlspecialchars($item['answer']) . '</div>';
-              echo '</div>';
-          }
-          echo '</section>';
-      } else {
-          echo "Nepodarilo sa načítať údaje z JSON.";
-      }
-      ?>
-
-    </section>
-  </div>
   </main>
   <footer class="container bg-dark text-white">
     <div class="row">
